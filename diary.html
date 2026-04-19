@@ -75,7 +75,7 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 12px 12px;
+    padding: 10px 10px;
     cursor: pointer;
     transition: background 0.15s;
     -webkit-user-select: none;
@@ -87,13 +87,19 @@
     align-items: center;
     gap: 8px;
   }
-  .card-icon { font-size: 20px; flex-shrink: 0; }
-  .card-meta { flex: 1; min-width: 0; }
+  .card-icon { font-size: 18px; flex-shrink: 0; }
+  .card-meta { flex: 1; min-width: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
   .card-tag {
-    font-size: 12px;
-    letter-spacing: 0.1em;
+    font-size: 11px;
+    letter-spacing: 0em;
     color: var(--muted);
     margin-bottom: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .card-word {
     font-family: 'Shippori Mincho', serif;
@@ -2415,7 +2421,6 @@ function renderCards(cards) {
       div.innerHTML = '<div class="card-header">'
         + '<span class="card-icon">' + card.icon + '</span>'
         + '<div class="card-meta"><div class="card-tag">' + card.tag + '</div>'
-        + '<div class="card-word" id="news-word"><span class="loading-dots"><span></span><span></span><span></span></span></div>'
         + '</div></div>';
       div.addEventListener('click', function() {
         playSound('tap');
@@ -3937,9 +3942,8 @@ async function init() {
 // 今日のニュース
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 async function fetchNews() {
-  var newsWord = document.getElementById('news-word');
   var newsBody = document.getElementById('news-modal-body');
-  if (!newsWord || !newsBody) return;
+  if (!newsBody) return;
 
   try {
     var res = await fetch('/api/news');
@@ -3948,8 +3952,7 @@ async function fetchNews() {
     var allItems = data.items || [];
     if (allItems.length === 0) throw new Error('no items');
 
-    newsWord.innerHTML = '<span style="font-size:12px;color:#1a0800;line-height:1.5;">'
-      + allItems[0].title.substring(0, 22) + '…</span>';
+    // カードプレビューなし
 
     var html = '';
     allItems.slice(0, 6).forEach(function(item) {
@@ -3972,7 +3975,7 @@ async function fetchNews() {
     newsBody.innerHTML = html;
 
   } catch(e) {
-    newsWord.innerHTML = '<span style="font-size:11px;color:#9a8a7a;">取得できませんでした</span>';
+    // カードプレビューなし
     newsBody.innerHTML = '<div style="color:#5a4a3a;padding:10px;">ニュースを取得できませんでした。</div>';
   }
 }
