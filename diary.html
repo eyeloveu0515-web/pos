@@ -8,14 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a0800;
-    --paper: #f5f0e8;
-    --paper2: #ece6da;
-    --accent: #7a3010;
+    --ink: #f0e8df;
+    --paper: #1a1612;
+    --paper2: #221e1a;
+    --accent: #c17f3a;
     --accent2: #a8642a;
-    --muted: #4a3a2a;
-    --border: rgba(120,60,20,0.22);
-    --card-bg: rgba(255,255,255,0.75);
+    --muted: #9a8a7a;
+    --border: rgba(255,255,255,0.10);
+    --card-bg: rgba(255,255,255,0.06);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   body {
@@ -98,7 +98,7 @@
   .card-word {
     font-family: 'Shippori Mincho', serif;
     font-size: 17px;
-    color: #1a0800;
+    color: var(--ink);
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
@@ -2201,21 +2201,21 @@ function buildCards(today) {
 
   // ━━ 1. 総合運勢（今日） ━━
   unsei += '<div style="background:linear-gradient(135deg,rgba(139,69,19,0.13),rgba(193,127,58,0.20));border:2px solid #c17f3a;border-radius:14px;padding:14px;margin-bottom:14px;">';
-  unsei += '<div style="font-size:13px;letter-spacing:0.15em;color:#7a3010;margin-bottom:4px;">総合運勢　今日</div>';
+  unsei += '<div style="font-size:13px;letter-spacing:0.15em;color:#c17f3a;margin-bottom:4px;">総合運勢　今日</div>';
   unsei += '<div style="font-size:20px;font-weight:bold;color:' + totalColor + ';margin-bottom:8px;">' + totalLabel + '</div>';
   unsei += '<div style="font-size:14px;line-height:1.8;color:#1a0800;">' + totalDesc + '</div>';
   unsei += '</div>';
 
   // ━━ 2. 今月の運勢 ━━
   unsei += '<div style="background:rgba(139,69,19,0.07);border:1px solid rgba(139,69,19,0.25);border-radius:12px;padding:12px;margin-bottom:12px;">';
-  unsei += '<div style="font-size:13px;letter-spacing:0.15em;color:#7a3010;margin-bottom:4px;">今月の運勢</div>';
+  unsei += '<div style="font-size:13px;letter-spacing:0.15em;color:#c17f3a;margin-bottom:4px;">今月の運勢</div>';
   unsei += '<div style="font-size:16px;font-weight:bold;color:#1a0800;margin-bottom:6px;">' + luckMonth.label + '　月盤：' + monthStar.n + '</div>';
   unsei += '<div style="font-size:14px;line-height:1.8;color:#1a0800;">' + monthMsg + '</div>';
   unsei += '</div>';
 
   // ━━ 3. 今年の運勢 ━━
   unsei += '<div style="background:rgba(139,69,19,0.05);border:1px solid rgba(139,69,19,0.18);border-radius:12px;padding:12px;margin-bottom:18px;">';
-  unsei += '<div style="font-size:13px;letter-spacing:0.15em;color:#7a3010;margin-bottom:4px;">今年の運勢</div>';
+  unsei += '<div style="font-size:13px;letter-spacing:0.15em;color:#c17f3a;margin-bottom:4px;">今年の運勢</div>';
   unsei += '<div style="font-size:16px;font-weight:bold;color:#1a0800;margin-bottom:6px;">' + luckYear.label + '　年盤：' + yearStar.n + '</div>';
   unsei += '<div style="font-size:14px;line-height:1.8;color:#1a0800;">' + yearMsg + '</div>';
   unsei += '</div>';
@@ -2231,7 +2231,7 @@ function buildCards(today) {
   var hasBothMaster = (lp === 33 && futureNum === 11);
   if (hasBothMaster) {
     unsei += '<div style="background:linear-gradient(135deg,rgba(139,69,19,0.12),rgba(193,127,58,0.18));border:2px solid #c17f3a;border-radius:10px;padding:10px;margin-bottom:8px;">';
-    unsei += '<div style="font-size:14px;font-weight:bold;color:#7a3010;margin-bottom:4px;">✦ マスターオブマスターナンバー（33 × 11）</div>';
+    unsei += '<div style="font-size:14px;font-weight:bold;color:#c17f3a;margin-bottom:4px;">✦ マスターオブマスターナンバー（33 × 11）</div>';
     unsei += 'LP<b>33</b>（マスターティーチャー）と未来数<b>11</b>（マスターインスピレーター）を同時に持つ極めて稀な存在。<br>';
     unsei += '愛・直感・癒しの三位一体。人々の意識を覚醒させる使命を持ちます。</div>';
   } else if (isMaster) {
@@ -2250,7 +2250,7 @@ function buildCards(today) {
   var isKasshi = (yearPillar.text === '甲子');
   if (isKasshi) {
     unsei += '<div style="background:linear-gradient(135deg,rgba(139,69,19,0.10),rgba(193,127,58,0.15));border:2px solid #8b4513;border-radius:10px;padding:10px;margin-bottom:8px;">';
-    unsei += '<div style="font-weight:bold;color:#7a3010;margin-bottom:4px;">🐭 甲子（きのえね）・大黒天のご縁</div>';
+    unsei += '<div style="font-weight:bold;color:#c17f3a;margin-bottom:4px;">🐭 甲子（きのえね）・大黒天のご縁</div>';
     unsei += '甲子は十干十二支の最初。60年に一度だけ訪れる特別な年の生まれ。<b>甲</b>は陽木の最強、<b>子</b>は始まりの象徴。<br>';
     unsei += '大黒天の縁日と重なる命式で、<b>財運・人望・繁栄の星</b>を生まれながらに持ちます。';
     unsei += '志を高く正直に生きることで大黒様の加護は一生続きます。</div>';
@@ -3781,47 +3781,47 @@ function selectCal2(key, d) {
     var s = '';
 
     if (eventName) {
-      s += '<div style="text-align:center;font-size:14px;font-weight:bold;color:#7a3010;margin-bottom:10px;">📅 ' + eventName + '</div>';
+      s += '<div style="text-align:center;font-size:14px;font-weight:bold;color:#c17f3a;margin-bottom:10px;">📅 ' + eventName + '</div>';
     }
 
     s += '<div style="background:linear-gradient(135deg,rgba(139,69,19,0.10),rgba(193,127,58,0.16));border:1px solid #c17f3a;border-radius:10px;padding:10px;margin-bottom:10px;text-align:center;">';
-    s += '<div style="font-size:11px;color:#7a3010;margin-bottom:2px;">総合運勢</div>';
+    s += '<div style="font-size:11px;color:#c17f3a;margin-bottom:2px;">総合運勢</div>';
     s += '<div style="font-size:16px;font-weight:bold;color:#7a3010;">' + totalLabel + '</div></div>';
 
     s += '<div style="display:flex;gap:8px;margin-bottom:10px;">';
     s += '<div style="flex:1;background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;text-align:center;">';
-    s += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">💎 誕生石</div>';
+    s += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">💎 誕生石</div>';
     s += '<div style="font-size:15px;font-weight:bold;color:#1a0800;">' + stoneText + '</div></div>';
     s += '<div style="flex:1;background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;text-align:center;">';
-    s += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">🌸 誕生花</div>';
+    s += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">🌸 誕生花</div>';
     s += '<div style="font-size:15px;font-weight:bold;color:#1a0800;">' + flowerText + '</div>';
     if (flowerMeaning) s += '<div style="font-size:11px;color:#5a4a3a;margin-top:2px;">' + flowerMeaning + '</div>';
     s += '</div></div>';
 
     s += '<div style="display:flex;gap:8px;margin-bottom:12px;">';
     s += '<div style="flex:1;background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;text-align:center;">';
-    s += '<div style="font-size:11px;color:#7a3010;margin-bottom:2px;">生まれてから</div>';
+    s += '<div style="font-size:11px;color:#c17f3a;margin-bottom:2px;">生まれてから</div>';
     s += '<div style="font-size:20px;font-weight:bold;color:#1a0800;">' + diffDays.toLocaleString() + '<span style="font-size:12px;">日目</span></div></div>';
     s += '<div style="flex:1;background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;text-align:center;">';
-    s += '<div style="font-size:11px;color:#7a3010;margin-bottom:2px;">誕生日まで</div>';
+    s += '<div style="font-size:11px;color:#c17f3a;margin-bottom:2px;">誕生日まで</div>';
     s += '<div style="font-size:20px;font-weight:bold;color:#1a0800;">' + daysToNext + '<span style="font-size:12px;">日</span></div></div>';
     s += '</div>';
 
     if (isSameDay && zt.t) {
       s += '<div style="background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;margin-bottom:10px;">';
-      s += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">💡 今日の雑学</div>';
+      s += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">💡 今日の雑学</div>';
       s += '<div style="font-size:14px;font-weight:bold;color:#1a0800;margin-bottom:4px;">' + zt.t + '</div>';
       s += '<div style="font-size:13px;color:#4a3a2a;line-height:1.8;">' + zt.b + '</div></div>';
     }
     if (isSameDay && mg.m) {
       s += '<div style="background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;margin-bottom:10px;">';
-      s += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">✦ 今日の言葉</div>';
+      s += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">✦ 今日の言葉</div>';
       s += '<div style="font-size:14px;font-style:italic;color:#1a0800;line-height:1.8;margin-bottom:4px;">' + mg.m + '</div>';
       s += '<div style="font-size:12px;color:#5a4a3a;text-align:right;">― ' + mg.a + '</div></div>';
     }
     if (isSameDay && nz.q) {
       s += '<div style="background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;">';
-      s += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">🧩 今日のなぞなぞ</div>';
+      s += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">🧩 今日のなぞなぞ</div>';
       s += '<div style="font-size:13px;color:#1a0800;line-height:1.8;margin-bottom:6px;">' + nz.q + '</div>';
       s += '<details><summary style="color:#7a3010;cursor:pointer;font-size:13px;font-weight:bold;">▶ 答えを見る</summary>';
       s += '<div style="margin-top:8px;font-size:13px;color:#1a0800;line-height:1.8;"><b>答え</b><br>' + nz.a + '<br><br><b>解説</b><br>' + nz.ex + '</div></details></div>';
@@ -4043,39 +4043,39 @@ function showDiarySummary(today, diaryText) {
 
   // 2. 今日は何の日
   if (eventName) {
-    html += '<div style="text-align:center;font-size:14px;font-weight:bold;color:#7a3010;margin-bottom:10px;">📅 ' + eventName + '</div>';
+    html += '<div style="text-align:center;font-size:14px;font-weight:bold;color:#c17f3a;margin-bottom:10px;">📅 ' + eventName + '</div>';
   }
 
   // 3. 総合運勢
   html += '<div style="background:linear-gradient(135deg,rgba(139,69,19,0.10),rgba(193,127,58,0.16));border:1px solid #c17f3a;border-radius:10px;padding:10px;margin-bottom:10px;text-align:center;">';
-  html += '<div style="font-size:12px;color:#7a3010;margin-bottom:2px;">総合運勢　今日</div>';
+  html += '<div style="font-size:12px;color:#c17f3a;margin-bottom:2px;">総合運勢　今日</div>';
   html += '<div style="font-size:17px;font-weight:bold;color:#7a3010;">' + totalLabel + '</div>';
   html += '</div>';
 
   // 4. 誕生石・誕生花
   html += '<div style="display:flex;gap:8px;margin-bottom:10px;">';
   html += '<div style="flex:1;background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;text-align:center;">';
-  html += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">💎 誕生石</div>';
+  html += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">💎 誕生石</div>';
   html += '<div style="font-size:15px;font-weight:bold;color:#1a0800;">' + stoneText + '</div></div>';
   html += '<div style="flex:1;background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;text-align:center;">';
-  html += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">🌸 誕生花</div>';
+  html += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">🌸 誕生花</div>';
   html += '<div style="font-size:15px;font-weight:bold;color:#1a0800;">' + flowerText + '</div></div>';
   html += '</div>';
 
   // 5. かれこれ & 誕生日まで
   html += '<div style="display:flex;gap:8px;margin-bottom:12px;">';
   html += '<div style="flex:1;background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;text-align:center;">';
-  html += '<div style="font-size:11px;color:#7a3010;margin-bottom:2px;">生まれてから</div>';
+  html += '<div style="font-size:11px;color:#c17f3a;margin-bottom:2px;">生まれてから</div>';
   html += '<div style="font-size:20px;font-weight:bold;color:#1a0800;">' + diffDays.toLocaleString() + '<span style="font-size:12px;">日目</span></div></div>';
   html += '<div style="flex:1;background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;text-align:center;">';
-  html += '<div style="font-size:11px;color:#7a3010;margin-bottom:2px;">誕生日まで</div>';
+  html += '<div style="font-size:11px;color:#c17f3a;margin-bottom:2px;">誕生日まで</div>';
   html += '<div style="font-size:20px;font-weight:bold;color:#1a0800;">' + daysToNext + '<span style="font-size:12px;">日</span></div></div>';
   html += '</div>';
 
   // 6. 今日の雑学
   if (zt.t) {
     html += '<div style="background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;margin-bottom:10px;">';
-    html += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">💡 今日の雑学</div>';
+    html += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">💡 今日の雑学</div>';
     html += '<div style="font-size:14px;font-weight:bold;color:#1a0800;margin-bottom:4px;">' + zt.t + '</div>';
     html += '<div style="font-size:13px;color:#4a3a2a;line-height:1.8;">' + zt.b + '</div></div>';
   }
@@ -4083,7 +4083,7 @@ function showDiarySummary(today, diaryText) {
   // 7. 今日の言葉
   if (mg.m) {
     html += '<div style="background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;margin-bottom:10px;">';
-    html += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">✦ 今日の言葉</div>';
+    html += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">✦ 今日の言葉</div>';
     html += '<div style="font-size:14px;font-style:italic;color:#1a0800;line-height:1.8;margin-bottom:4px;">' + mg.m + '</div>';
     html += '<div style="font-size:12px;color:#5a4a3a;text-align:right;">― ' + mg.a + '</div></div>';
   }
@@ -4091,7 +4091,7 @@ function showDiarySummary(today, diaryText) {
   // 8. 今日のなぞなぞ
   if (nz.q) {
     html += '<div style="background:rgba(139,69,19,0.06);border-radius:10px;padding:10px;">';
-    html += '<div style="font-size:11px;color:#7a3010;margin-bottom:4px;">🧩 今日のなぞなぞ</div>';
+    html += '<div style="font-size:11px;color:#c17f3a;margin-bottom:4px;">🧩 今日のなぞなぞ</div>';
     html += '<div style="font-size:13px;color:#1a0800;line-height:1.8;margin-bottom:6px;">' + nz.q + '</div>';
     html += '<details><summary style="color:#7a3010;cursor:pointer;font-size:13px;font-weight:bold;">▶ 答えを見る</summary>';
     html += '<div style="margin-top:8px;font-size:13px;color:#1a0800;line-height:1.8;"><b>答え</b><br>' + nz.a + '<br><br><b>解説</b><br>' + nz.ex + '</div></details></div>';
@@ -4111,9 +4111,9 @@ function showConfirm(title, preview, callback) {
   modal.id = 'confirmModal';
   modal.style.cssText = 'position:fixed;inset:0;background:rgba(26,20,16,0.65);z-index:10000;display:flex;align-items:center;justify-content:center;padding:24px;';
   var inner = document.createElement('div');
-  inner.style.cssText = 'background:#f5f0e8;border-radius:18px;width:100%;max-width:380px;padding:24px;';
+  inner.style.cssText = 'background:#1e1a16;border-radius:18px;width:100%;max-width:380px;padding:24px;';
   var titleEl = document.createElement('div');
-  titleEl.style.cssText = 'font-size:17px;font-weight:600;color:#7a3010;margin-bottom:12px;text-align:center;';
+  titleEl.style.cssText = 'font-size:17px;font-weight:600;color:#c17f3a;margin-bottom:12px;text-align:center;';
   titleEl.textContent = title;
   inner.appendChild(titleEl);
   if (preview) {
@@ -4151,7 +4151,7 @@ function showEditDiary(key, entryIndex, originalText) {
   modal.id = 'editModal';
   modal.style.cssText = 'position:fixed;inset:0;background:rgba(26,20,16,0.65);z-index:10000;display:flex;align-items:flex-end;justify-content:center;';
   var inner = document.createElement('div');
-  inner.style.cssText = 'background:#f5f0e8;border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:20px 20px 40px;';
+  inner.style.cssText = 'background:#1e1a16;border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:20px 20px 40px;';
   var header = document.createElement('div');
   header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;';
   var titleEl = document.createElement('div');
@@ -4222,7 +4222,7 @@ async function confirmDeleteEntry(key, entryIndex) {
   modal.id = 'deleteModal';
   modal.style.cssText = 'position:fixed;inset:0;background:rgba(26,20,16,0.65);z-index:10000;display:flex;align-items:center;justify-content:center;padding:24px;';
   var inner = document.createElement('div');
-  inner.style.cssText = 'background:#f5f0e8;border-radius:18px;width:100%;max-width:340px;padding:24px;text-align:center;';
+  inner.style.cssText = 'background:#1e1a16;border-radius:18px;width:100%;max-width:340px;padding:24px;text-align:center;';
   var t1 = document.createElement('div');
   t1.style.cssText = 'font-size:17px;font-weight:bold;color:#c0392b;margin-bottom:8px;';
   t1.textContent = '🗑 削除しますか？';
