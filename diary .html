@@ -75,7 +75,7 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 12px 12px;
+    padding: 10px 10px;
     cursor: pointer;
     transition: background 0.15s;
     -webkit-user-select: none;
@@ -87,11 +87,14 @@
     align-items: center;
     gap: 8px;
   }
-  .card-icon { font-size: 20px; flex-shrink: 0; }
-  .card-meta { flex: 1; min-width: 0; }
+  .card-icon { font-size: 18px; flex-shrink: 0; }
+  .card-meta { flex: 1; min-width: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
   .card-tag {
-    font-size: 12px;
-    letter-spacing: 0.05em;
+    font-size: 11px;
+    letter-spacing: 0em;
     color: var(--muted);
     margin-bottom: 1px;
     white-space: nowrap;
@@ -3939,9 +3942,8 @@ async function init() {
 // 今日のニュース
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 async function fetchNews() {
-  var newsWord = document.getElementById('news-word'); // unused
   var newsBody = document.getElementById('news-modal-body');
-  if (!newsWord || !newsBody) return;
+  if (!newsBody) return;
 
   try {
     var res = await fetch('/api/news');
@@ -4003,10 +4005,10 @@ function showDiarySummary(today, diaryText) {
   var lsYear  = getKyuseiLuckScore(honmeiIdx, yearStarIdx);
   var totalScore = lsDay + lsMonth + lsYear;
   var totalLabel;
-  if      (totalScore >= 13) totalLabel = '★★★★★ 絶好調';
-  else if (totalScore >= 10) totalLabel = '★★★★☆ 好調';
-  else if (totalScore >= 8)  totalLabel = '★★★☆☆ 普通';
-  else if (totalScore >= 6)  totalLabel = '★★☆☆☆ やや注意';
+  if      (totalScore >= 12) totalLabel = '★★★★★ 絶好調';
+  else if (totalScore >= 9)  totalLabel = '★★★★☆ 好調';
+  else if (totalScore >= 7)  totalLabel = '★★★☆☆ 普通';
+  else if (totalScore >= 5)  totalLabel = '★★☆☆☆ やや注意';
   else                       totalLabel = '★☆☆☆☆ 充電日';
 
   // 誕生石・誕生花（日別データから直接取得）
